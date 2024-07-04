@@ -1,0 +1,10 @@
+<div class="row">
+  @for (item of itemsList; track $index) {
+  <div class="card col-md-3">
+    <div class="card-body">
+      <span>{{ item?.name }}</span>
+      <img [src]="item?.imgUrl" alt="">
+    </div>
+  </div>
+  }
+</div>

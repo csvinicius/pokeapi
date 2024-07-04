@@ -1,0 +1,10 @@
+<div class="row">
+  @for (berry of berriesList; track $index) {
+  <div class="card col-md-3">
+    <div class="card-body">
+      <span>{{ berry?.name }}</span>
+      <img [src]="berry?.imgUrl" alt="">
+    </div>
+  </div>
+  }
+</div>

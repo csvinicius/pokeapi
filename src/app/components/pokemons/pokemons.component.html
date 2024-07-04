@@ -1,0 +1,12 @@
+<div class="row">
+  @for (pokemon of pokemonsList; track $index) {
+  <div class="card col-md-3">
+    <div class="card-title">
+      <span>{{ pokemon?.name }}</span>
+    </div>
+    <div class="card-body">
+      <img [src]="pokemon?.imgUrl" alt="">
+    </div>
+  </div>
+  }
+</div>
