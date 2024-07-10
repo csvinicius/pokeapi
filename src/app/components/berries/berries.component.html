@@ -1,10 +1,23 @@
-<div class="row">
-  @for (berry of berriesList; track $index) {
-  <div class="card col-md-3">
-    <div class="card-body">
-      <span>{{ berry?.name }}</span>
-      <img [src]="berry?.imgUrl" alt="">
+<div class="container bg-light">
+  <div class="row justify-content-center p-4">
+    @for (berry of berriesList | paginate: { itemsPerPage: 12, currentPage: page }; track $index) {
+    <div class="card col-md-3 m-2 d-flex justify-content-center align-items-center rounded shadow-sm">
+      <div class="card-body">
+        <div class="card-title text-center">
+          <span>{{ berry?.name | titlecase }}</span>
+        </div>
+        <img [src]="berry?.imgUrl" alt="pokemon image">
+      </div>
     </div>
+    }
+    @if (berriesList.length) {      
+      <pagination-controls 
+        class="text-md-end"
+        previousLabel=""
+        nextLabel=""
+        [responsive]="true"
+        (pageChange)="page = $event">
+      </pagination-controls>
+    }
   </div>
-  }
 </div>

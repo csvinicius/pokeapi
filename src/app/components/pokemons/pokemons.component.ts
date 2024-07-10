@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
+import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-pokemons',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, NgxPaginationModule],
   templateUrl: './pokemons.component.html',
   styleUrl: './pokemons.component.scss'
 })
 export class PokemonsComponent implements OnInit {
   pokemonsList: any[] = [];
+  page: number = 1;
 
   private readonly pokemonUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
   

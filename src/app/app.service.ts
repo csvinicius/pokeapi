@@ -6,18 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class AppService {
   apiUrl = 'https://pokeapi.co/api/v2';
+  limit = 60;
 
   constructor(private httpClient: HttpClient) { }
 
   getPokemons() {
-    return this.httpClient.get(`${this.apiUrl}/pokemon`);
+    return this.httpClient.get(`${this.apiUrl}/pokemon?limit=${this.limit}`);
   }
 
   getBerries() {
-    return this.httpClient.get(`${this.apiUrl}/berry`);
-  }
-
-  getItems() {
-    return this.httpClient.get(`${this.apiUrl}/item`);
+    return this.httpClient.get(`${this.apiUrl}/berry?limit=${this.limit}`);
   }
 }
