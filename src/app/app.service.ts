@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AppService {
   apiUrl = 'https://pokeapi.co/api/v2';
-  limit = 60;
+  limit = 63;
 
   constructor(private httpClient: HttpClient) { }
 

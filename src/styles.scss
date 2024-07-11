@@ -1,9 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+$yellow-500: #feca1c;
+$blue-500: #3761a8;
 
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
 * {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
+}
+
+header {
+  height: 70px;
+  background: $blue-500;
+}
+
+main {
+  min-height: calc(100vh - 70px);
+  background: $yellow-500;
+}
+
+.card-title > span {
+  color: #fff;
+}
+
+.card {
+  height: 160px;
+  width: 160px;
+  background: $blue-500;
+}
+
+.card-footer {
+  max-width: 40%;
+  
+  @media screen and (min-width:768px) {
+    max-width: 95%;
+  }
 }

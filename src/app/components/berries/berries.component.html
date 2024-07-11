@@ -1,23 +1,27 @@
-<div class="container bg-light">
-  <div class="row justify-content-center p-4">
-    @for (berry of berriesList | paginate: { itemsPerPage: 12, currentPage: page }; track $index) {
-    <div class="card col-md-3 m-2 d-flex justify-content-center align-items-center rounded shadow-sm">
-      <div class="card-body">
-        <div class="card-title text-center">
-          <span>{{ berry?.name | titlecase }}</span>
+<main>
+  <div class="container">
+    <div class="row justify-content-center align-items-center pt-4">
+      @for (berry of berriesList | paginate: { itemsPerPage: 14, currentPage: page }; track $index) {
+      <div class="card col-md-3 m-2 d-flex justify-content-center align-items-center rounded shadow-sm">
+        <div class="card-body">
+          <div class="card-title text-center">
+            <span>{{ berry?.name | titlecase }}</span>
+          </div>
+          <img [src]="berry?.imgUrl" alt="pokemon image">
         </div>
-        <img [src]="berry?.imgUrl" alt="pokemon image">
       </div>
+      }
+      @if (berriesList.length) {  
+        <div class="card-footer">
+          <pagination-controls 
+            class="text-md-end"
+            previousLabel=""
+            nextLabel=""
+            [responsive]="true"
+            (pageChange)="page = $event">
+          </pagination-controls>
+        </div>    
+      }
     </div>
-    }
-    @if (berriesList.length) {      
-      <pagination-controls 
-        class="text-md-end"
-        previousLabel=""
-        nextLabel=""
-        [responsive]="true"
-        (pageChange)="page = $event">
-      </pagination-controls>
-    }
   </div>
-</div>
+</main>
