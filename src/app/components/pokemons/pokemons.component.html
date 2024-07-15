@@ -1,0 +1,27 @@
+<main>
+  <div class="container">
+    <div class="row justify-content-center align-items-center pt-4">
+      @for (pokemon of pokemonsList | paginate: { itemsPerPage: 14, currentPage: page }; track $index) {
+      <div class="card col-md-3 m-2 d-flex justify-content-center align-items-center rounded shadow-sm">
+        <div class="card-body">
+          <div class="card-title text-center">
+            <span>{{ pokemon?.name | titlecase }}</span>
+          </div>
+          <img [src]="pokemon?.imgUrl" alt="pokemon image">
+        </div>
+      </div>
+      }
+      @if (pokemonsList.length) { 
+        <div class="card-footer">
+          <pagination-controls 
+            class="text-md-end"
+            [responsive]="true"
+            previousLabel=""
+            nextLabel=""
+            (pageChange)="page = $event">
+          </pagination-controls>
+        </div>     
+      }
+    </div>
+  </div>
+</main>
