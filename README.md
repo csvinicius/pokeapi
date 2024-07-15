@@ -7,7 +7,7 @@ Check if you have Angular CLI on your machine using the `ng version` command
 
 If you don't have it, you can install it by following the official Angular CLI documentation: https://angular.io/cli
  
-## 💻 Stack rodando local
+## 💻 Stack running locally
 With the Angular CLI installed, clone this repository and enter the directory
 ``` 
 git clone git@github.com:csvinicius/pokeapi.git &&
