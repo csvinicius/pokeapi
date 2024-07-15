@@ -1,8 +1,23 @@
 <main>
   <div class="container">
-    <div class="row justify-content-center align-items-center pt-4">
-      @for (pokemon of pokemonsList | paginate: { itemsPerPage: 14, currentPage: page }; track $index) {
-      <div class="card col-md-3 m-2 d-flex justify-content-center align-items-center rounded shadow-sm">
+    <div class="row justify-content-between align-items-center pt-4 pb-4">
+      <div class="col-md-5">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Search by name" 
+          [(ngModel)]="searchTerm" 
+          (input)="filterPokemons()">
+      </div>
+      <div class="col-sm-1 text-end">
+        <button class="btn btn-primary" (click)="toggleSort()">
+          <span class="bi" [ngClass]="{'bi-arrow-up': sort, 'bi bi-arrow-down': !sort}"></span>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around flex-wrap">
+      @for (pokemon of filteredPokemonsList | paginate: { itemsPerPage: 16, currentPage: page }; track $index) {
+      <div class="card d-flex justify-content-center align-items-center mb-4 rounded shadow-sm">
         <div class="card-body">
           <div class="card-title text-center">
             <span>{{ pokemon?.name | titlecase }}</span>
@@ -11,17 +26,17 @@
         </div>
       </div>
       }
-      @if (pokemonsList.length) { 
-        <div class="card-footer">
-          <pagination-controls 
-            class="text-md-end"
-            [responsive]="true"
-            previousLabel=""
-            nextLabel=""
-            (pageChange)="page = $event">
-          </pagination-controls>
-        </div>     
-      }
     </div>
+    @if (pokemonsList.length) { 
+      <div class="card-footer">
+        <pagination-controls 
+          class="text-md-end"
+          [responsive]="true"
+          previousLabel=""
+          nextLabel=""
+          (pageChange)="page = $event">
+        </pagination-controls>
+      </div>     
+    }
   </div>
 </main>
